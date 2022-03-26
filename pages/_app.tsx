@@ -7,7 +7,7 @@ import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ApolloProvider client={client}>
       <Head>
         <title>Apegro - Chuck Norris</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -15,8 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-
-    </>
+    </ApolloProvider>
   )
 }
 
