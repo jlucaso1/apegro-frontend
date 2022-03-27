@@ -19,12 +19,12 @@ export const RandomJokes: React.FC = ({ }) => {
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-y-4">
       <JokeView text={indexContext.jokeText} />
 
-      <Button className='mt-2' onClick={getRandomJoke}>
+      <Button onClick={getRandomJoke} className="self-center">
         Get a random joke
       </Button>
-    </>
+    </div>
   );
 }

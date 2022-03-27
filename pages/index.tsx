@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
+import Router from 'next/router';
 import React, { useState } from 'react';
+import { Button } from '../components/button';
 import { CategoriesView } from '../components/categories-view';
 import { RandomJokes } from '../components/random-jokes';
 import { IndexContext } from '../contexts/index-context';
@@ -23,7 +25,13 @@ const Home: NextPage<IndexPageProps> = ({ categories }) => {
 
         <RandomJokes />
 
-        <CategoriesView categories={categories} />
+
+        <div className='flex flex-col absolute mx-auto bottom-7 left-0 right-0 items-center gap-y-5'>
+          <Button onClick={() => Router.push("/search")}>
+            Search a Joke
+          </Button>
+          <CategoriesView categories={categories} />
+        </div>
 
       </div>
     </IndexContext.Provider>
