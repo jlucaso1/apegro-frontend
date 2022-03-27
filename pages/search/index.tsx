@@ -37,7 +37,7 @@ const SearchPage = () => {
             Search
           </Button>
         </form>
-        <div className="flex flex-col gap-y-4 items-center">
+        <div className="flex flex-col gap-y-4 items-center px-3 pb-3">
           {jokes.map((joke) => (
             <JokeView key={joke.id} text={joke.value} className="w-full" />
           ))}
