@@ -19,7 +19,7 @@ export const RandomJokes: React.FC = ({ }) => {
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-4 px-3">
       <JokeView text={indexContext.jokeText} />
 
       <Button onClick={getRandomJoke} className="self-center">
