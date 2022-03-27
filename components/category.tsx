@@ -20,6 +20,7 @@ export const Category: React.FC<CategoryProps> = ({ name }) => {
     });
     indexContext.setJokeText(result.data.randomJoke.value);
   }
+
   return (
     <button className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800" onClick={getRandomJoke}>
       {name}
