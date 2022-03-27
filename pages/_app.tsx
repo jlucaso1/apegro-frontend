@@ -7,15 +7,18 @@ import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
+    <>
       <Head>
         <title>Apegro - Chuck Norris</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name='description' content='A nextjs application to show Chuck Norris jokes using graphql API' />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+      <ApolloProvider client={client}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloProvider>
+    </>
   )
 }
 

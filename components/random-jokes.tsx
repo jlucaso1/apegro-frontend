@@ -1,19 +1,29 @@
-import { useLazyQuery } from "@apollo/client";
+import { useContext } from "react";
+import { IndexContext } from "../contexts/index-context";
+import client from "../graphql/boot/apollo-client";
 import { QueryGetRandomJoke } from "../graphql/queries/getRandomJoke";
 import { Button } from "./button";
 import { JokeView } from "./joke-view";
 
 
 
-export const RandomJokes: React.FC = () => {
-  const [getRandomJoke, { data, loading }] = useLazyQuery(QueryGetRandomJoke);
+export const RandomJokes: React.FC = ({ }) => {
+  const indexContext = useContext(IndexContext);
+
+  const getRandomJoke = async () => {
+    const result = await client.query({
+      query: QueryGetRandomJoke,
+      fetchPolicy: "no-cache",
+    });
+    indexContext.setJokeText(result.data.randomJoke.value);
+  }
 
   return (
     <>
-      <JokeView text={data ? data.randomJoke.value : "Clique no botão para obter uma piada aleatória"} />
+      <JokeView text={indexContext.jokeText} />
 
-      <Button className='mt-2' onClick={getRandomJoke} disabled={loading}>
-        Piada aleatória
+      <Button className='mt-2' onClick={getRandomJoke}>
+        Get a random joke
       </Button>
     </>
   );
