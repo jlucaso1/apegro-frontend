@@ -1,6 +1,7 @@
 import { useLazyQuery } from "@apollo/client";
 import { QueryGetRandomJoke } from "../graphql/queries/getRandomJoke";
 import { Button } from "./button";
+import { JokeView } from "./joke-view";
 
 
 
@@ -9,9 +10,7 @@ export const RandomJokes: React.FC = () => {
 
   return (
     <>
-      <div className='text-white border border-double border-1 border-slate-400 p-3 max-w-lg text-justify'>
-        {data ? data.randomJoke.value : "Clique no botão para obter uma piada aleatória"}
-      </div>
+      <JokeView text={data ? data.randomJoke.value : "Clique no botão para obter uma piada aleatória"} />
 
       <Button className='mt-2' onClick={getRandomJoke} disabled={loading}>
         Piada aleatória

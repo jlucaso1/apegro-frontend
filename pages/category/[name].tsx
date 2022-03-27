@@ -1,14 +1,20 @@
 import { GetStaticPaths } from "next/types"
+import { JokeView } from "../../components/joke-view"
 import client from "../../graphql/boot/apollo-client"
 import { QueryGetRandomJoke } from "../../graphql/queries/getRandomJoke"
+import { Joke } from "../../types/joke"
 
 
-const CategoryPage: React.FC = () => {
+type Props = {
+  joke: Joke
+}
 
+const CategoryPage: React.FC<Props> = ({ joke }) => {
 
   return (
-    <>
-    </>
+    <div className="flex justify-center">
+      <JokeView text={joke.value} />
+    </div>
   )
 }
 
@@ -20,14 +26,11 @@ export async function getStaticProps({ params: { name } }: { params: { name: str
     }
   })
 
-  const jokes = result.data.randomJoke;
-  
-
-  console.log(jokes)
+  const joke = result.data.randomJoke;
 
   return {
     props: {
-      jokes,
+      joke,
     },
   }
 }
