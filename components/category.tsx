@@ -5,25 +5,33 @@ import { QueryGetRandomJoke } from "../graphql/queries/getRandomJoke";
 
 type CategoryProps = {
   name: string;
-}
+};
 
 export const Category: React.FC<CategoryProps> = ({ name }) => {
   const indexContext = useContext(IndexContext);
 
   const getRandomJoke = async () => {
-    const result = await client.query({
-      query: QueryGetRandomJoke,
-      variables: {
-        category: name
-      },
-      fetchPolicy: "no-cache",
-    });
-    indexContext.setJokeText(result.data.randomJoke.value);
-  }
+    indexContext.setIsLoading(true);
+    try {
+      const result = await client.query({
+        query: QueryGetRandomJoke,
+        variables: {
+          category: name,
+        },
+        fetchPolicy: "no-cache",
+      });
+      indexContext.setJokeText(result.data.randomJoke.value);
+    } finally {
+      indexContext.setIsLoading(false);
+    }
+  };
 
   return (
-    <button className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800" onClick={getRandomJoke}>
+    <button
+      className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800"
+      onClick={getRandomJoke}
+    >
       {name}
     </button>
-  )
-}
+  );
+};

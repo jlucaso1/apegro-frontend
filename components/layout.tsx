@@ -8,4 +8,4 @@ export const Layout: NextPage = ({ children }) => {
       <main>{children}</main>
     </div>
   );
-}
+};
