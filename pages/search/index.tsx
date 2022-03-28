@@ -61,7 +61,7 @@ const SearchPage = () => {
           {isFirstSearch ? (
             <JokeView text="Make a search" />
           ) : jokes.length == 0 ? (
-            <JokeView text="Not found results" />
+            <JokeView text="No results found" />
           ) : (
             jokes.map((joke) => (
               <JokeView key={joke.id} text={joke.value} className="w-full" />
