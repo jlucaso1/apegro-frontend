@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { IndexContext } from "../contexts/index-context";
 import client from "../graphql/boot/apollo-client";
 import { QueryGetRandomJoke } from "../graphql/queries/getRandomJoke";
-import { Button } from "./button";
+import Button from "../ui/components/atoms/Button/Button";
+import { LoadingSpinner } from "../ui/components/atoms/LoadingSpinner/LoadingSpinner";
 import { JokeView } from "./joke-view";
-import { LoadingSpinner } from "./loading-spinner";
 
 export const RandomJokes: React.FC = ({}) => {
   const indexContext = useContext(IndexContext);
@@ -30,9 +30,7 @@ export const RandomJokes: React.FC = ({}) => {
         <JokeView text={indexContext.jokeText} />
       )}
 
-      <Button onClick={getRandomJoke} className="self-center">
-        Get a random joke
-      </Button>
+      <Button onClick={getRandomJoke}>Get a random joke</Button>
     </div>
   );
 };

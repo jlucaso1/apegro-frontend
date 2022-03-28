@@ -9,7 +9,7 @@ export const basicButton: React.FC<ButtonProps> = ({
 
 export default {
   component: Button,
-  title: "Atoms|Button",
+  title: "Atoms/Button",
   parameters: {
     componentSubtitle: "A button component.",
   },

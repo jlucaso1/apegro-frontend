@@ -1,4 +1,4 @@
-import { Category } from "./category";
+import { Category } from "../ui/components/atoms/Category/Category";
 
 type CategoriesViewProps = {
   categories: string[];

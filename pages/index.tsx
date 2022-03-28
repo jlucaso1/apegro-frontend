@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Router from "next/router";
 import React, { useState } from "react";
-import { Button } from "../components/button";
 import { CategoriesView } from "../components/categories-view";
 import { RandomJokes } from "../components/random-jokes";
 import { IndexContext } from "../contexts/index-context";
 import client from "../graphql/boot/apollo-client";
 import { QueryGetCategories } from "../graphql/queries/getCategories";
+import Button from "../ui/components/atoms/Button/Button";
 
 type IndexPageProps = {
   categories: string[];

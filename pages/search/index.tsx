@@ -1,11 +1,11 @@
 import { FormEvent, useState } from "react";
-import { Button } from "../../components/button";
 import { JokeView } from "../../components/joke-view";
-import { LoadingSpinner } from "../../components/loading-spinner";
 import { SearchContext } from "../../contexts/search-context";
 import client from "../../graphql/boot/apollo-client";
 import { QuerySearchJokes } from "../../graphql/queries/searchJokes";
 import { Joke } from "../../types/joke";
+import Button from "../../ui/components/atoms/Button/Button";
+import { LoadingSpinner } from "../../ui/components/atoms/LoadingSpinner/LoadingSpinner";
 
 const SearchPage = () => {
   const [jokes, setJokes] = useState<Joke[]>([]);

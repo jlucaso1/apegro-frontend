@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { IndexContext } from "../contexts/index-context";
-import client from "../graphql/boot/apollo-client";
-import { QueryGetRandomJoke } from "../graphql/queries/getRandomJoke";
+import { IndexContext } from "../../../../contexts/index-context";
+import client from "../../../../graphql/boot/apollo-client";
+import { QueryGetRandomJoke } from "../../../../graphql/queries/getRandomJoke";
+import Button from "../Button/Button";
 
-type CategoryProps = {
+type Props = {
   name: string;
 };
 
-export const Category: React.FC<CategoryProps> = ({ name }) => {
+export const Category: React.FC<Props> = ({ name }) => {
   const indexContext = useContext(IndexContext);
 
   const getRandomJoke = async () => {
@@ -27,11 +28,13 @@ export const Category: React.FC<CategoryProps> = ({ name }) => {
   };
 
   return (
-    <button
+    <Button
       className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800"
       onClick={getRandomJoke}
     >
       {name}
-    </button>
+    </Button>
   );
 };
+
+export type { Props as CategoryProps };

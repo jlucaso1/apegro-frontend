@@ -1,7 +1,11 @@
-export const LoadingSpinner: React.FC = () => {
+type Props = {
+  className?: string;
+};
+
+export const LoadingSpinner: React.FC<Props> = ({ ...props }) => {
   return (
     <svg
-      className={`animate-spin h-10 w-10 text-white rounded-full border border-1 border-pink-500`}
+      className={`inline animate-spin text-white rounded-full border border-1 border-pink-500 w-10 h-10 ${props.className}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -22,3 +26,5 @@ export const LoadingSpinner: React.FC = () => {
     </svg>
   );
 };
+
+export type { Props as LoadingSpinnerProps };

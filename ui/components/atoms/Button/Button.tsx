@@ -6,11 +6,11 @@ type Props = {
   className?: string;
 };
 
-const Button: React.FC<Props> = ({ children = "Default Child", ...props }) => {
+const Button: React.FC<Props> = ({ children, ...props }) => {
   return (
     <button
-      {...props}
       className={`border border-1 border-red-300 p-2 text-white hover:bg-green-800 disabled:bg-transparent`}
+      {...props}
     >
       {children}
     </button>
