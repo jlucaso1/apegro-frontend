@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:e2e": "yarn cypress open"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
