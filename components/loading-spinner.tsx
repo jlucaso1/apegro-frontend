@@ -1,13 +1,7 @@
-type size = "5" | "10" | "15" | "20" | "25" | "30" | "35" | "40";
-
-type Props = {
-  size?: size;
-};
-
-export const LoadingSpinner: React.FC<Props> = ({ size = "5" }) => {
+export const LoadingSpinner: React.FC = () => {
   return (
     <svg
-      className={`animate-spin h-${size} w-${size} text-white`}
+      className={`animate-spin h-10 w-10 text-white rounded-full border border-1 border-pink-500`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
