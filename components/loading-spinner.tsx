@@ -1,33 +1,16 @@
-type size =
-  | "5"
-  | "10"
-  | "15"
-  | "20"
-  | "25"
-  | "30"
-  | "35"
-  | "40"
-  | "45"
-  | "50"
-  | "55"
-  | "60"
-  | "65"
-  | "70"
-  | "75"
-  | "80"
-  | "85"
-  | "90"
-  | "95"
-  | "100";
+type size = "5" | "10" | "15" | "20" | "25" | "30" | "35" | "40";
 
 type Props = {
   size?: size;
 };
 
-export const LoadingSpinner: React.FC<Props> = ({ size }) => {
+export const LoadingSpinner: React.FC<Props> = ({ size = "5" }) => {
   return (
     <svg
-      className={`inline-flex animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24`}
+      className={`animate-spin h-${size} w-${size} text-white`}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
     >
       <circle
         className="opacity-25"
