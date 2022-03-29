@@ -4,6 +4,7 @@ import Button, { ButtonProps } from "./Button";
 
 export const basicButton: React.FC<ButtonProps> = ({
   children = "Basic Button",
+  type = "button",
   ...args
 }) => <Button {...args}>{children}</Button>;
 
@@ -18,6 +19,12 @@ export default {
       control: {
         type: "text",
         placeholder: "Button text",
+      },
+    },
+    type: {
+      control: {
+        type: "radio",
+        options: ["button", "submit", "reset"],
       },
     },
     onClick: {
