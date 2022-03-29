@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { IndexContext } from "../../../../src/contexts/index-context";
 import client from "../../../../src/graphql/boot/apollo-client";
 import { QueryGetRandomJoke } from "../../../../src/graphql/queries/getRandomJoke";
-import Button from "../Button/Button";
 
 export type CategoryProps = {
   name: string;
