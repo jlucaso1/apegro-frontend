@@ -1,35 +1,13 @@
-import { useContext } from "react";
-import { IndexContext } from "../../../../src/contexts/index-context";
-import client from "../../../../src/graphql/boot/apollo-client";
-import { QueryGetRandomJoke } from "../../../../src/graphql/queries/getRandomJoke";
-
 export type CategoryProps = {
   name: string;
+  onClick?: (categoryName: string) => void;
 };
 
-export const Category: React.FC<CategoryProps> = ({ name }) => {
-  const indexContext = useContext(IndexContext);
-
-  const getRandomJoke = async () => {
-    indexContext.setIsLoading(true);
-    try {
-      const result = await client.query({
-        query: QueryGetRandomJoke,
-        variables: {
-          category: name,
-        },
-        fetchPolicy: "no-cache",
-      });
-      indexContext.setJokeText(result.data.randomJoke.value);
-    } finally {
-      indexContext.setIsLoading(false);
-    }
-  };
-
+export const Category: React.FC<CategoryProps> = ({ name, onClick }) => {
   return (
     <button
       className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800"
-      onClick={getRandomJoke}
+      onClick={() => onClick && onClick(name)}
     >
       {name}
     </button>
