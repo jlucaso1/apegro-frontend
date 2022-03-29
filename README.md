@@ -2,6 +2,10 @@
 
 Repository link: https://github.com/jlucaso1/apegro-frontend
 
+## Description
+
+- This project is a Frontend that uses data from Chuck Norris API (with graphql gateway) and is related to the Apegro's challenge.
+
 ## Technologies
 
 - Typescript
