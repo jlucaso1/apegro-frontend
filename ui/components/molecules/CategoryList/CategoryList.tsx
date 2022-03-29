@@ -1,10 +1,10 @@
-import { Category } from "./category";
+import { Category } from "../../atoms/Category/Category";
 
-type CategoriesViewProps = {
+interface CategoriesListProps {
   categories: string[];
-};
+}
 
-export const CategoriesView: React.FC<CategoriesViewProps> = ({
+export const CategoryList: React.FC<CategoriesListProps> = ({
   categories,
 }) => {
   return (

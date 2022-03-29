@@ -1,11 +1,11 @@
 import { FormEvent, useState } from "react";
-import { Button } from "../../components/button";
-import { JokeView } from "../../components/joke-view";
-import { LoadingSpinner } from "../../components/loading-spinner";
 import { SearchContext } from "../../contexts/search-context";
 import client from "../../graphql/boot/apollo-client";
 import { QuerySearchJokes } from "../../graphql/queries/searchJokes";
 import { Joke } from "../../types/joke";
+import Button from "../../ui/components/atoms/Button/Button";
+import { JokeView } from "../../ui/components/atoms/JokeView/JokeView";
+import { LoadingSpinner } from "../../ui/components/atoms/LoadingSpinner/LoadingSpinner";
 
 const SearchPage = () => {
   const [jokes, setJokes] = useState<Joke[]>([]);
@@ -55,7 +55,7 @@ const SearchPage = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           )}
-          <Button type="submit">Search</Button>
+          <Button label="Search" />
         </form>
         <div className="flex flex-col gap-y-4 items-center px-3 pb-3">
           {isFirstSearch ? (
@@ -63,9 +63,7 @@ const SearchPage = () => {
           ) : jokes.length == 0 ? (
             <JokeView text="No results found" />
           ) : (
-            jokes.map((joke) => (
-              <JokeView key={joke.id} text={joke.value} className="w-full" />
-            ))
+            jokes.map((joke) => <JokeView key={joke.id} text={joke.value} />)
           )}
         </div>
       </div>

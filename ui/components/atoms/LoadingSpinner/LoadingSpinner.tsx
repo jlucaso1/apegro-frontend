@@ -1,7 +1,7 @@
 export const LoadingSpinner: React.FC = () => {
   return (
     <svg
-      className={`animate-spin h-10 w-10 text-white rounded-full border border-1 border-pink-500`}
+      className="animate-spin h-10 w-10 text-white rounded-full border border-1 border-pink-500"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

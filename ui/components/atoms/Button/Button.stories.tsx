@@ -1,11 +1,6 @@
 import React from "react";
-
-import Button, { ButtonProps } from "./Button";
-
-export const basicButton: React.FC<ButtonProps> = ({
-  children = "Basic Button",
-  ...args
-}) => <Button {...args}>{children}</Button>;
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Button from "./Button";
 
 export default {
   component: Button,
@@ -13,24 +8,10 @@ export default {
   parameters: {
     componentSubtitle: "A button component.",
   },
-  argTypes: {
-    children: {
-      control: {
-        type: "text",
-        placeholder: "Button text",
-      },
-    },
-    onClick: {
-      control: {
-        type: "function",
-        placeholder: "onClick",
-      },
-    },
-    disabled: {
-      control: {
-        type: "boolean",
-        placeholder: "disabled",
-      },
-    },
-  },
+} as ComponentMeta<typeof Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const BasicButton = Template.bind({});
+BasicButton.args = {
+  label: "Button",
 };

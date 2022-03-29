@@ -28,11 +28,11 @@ export const Category: React.FC<CategoryProps> = ({ name }) => {
   };
 
   return (
-    <Button
-      className="border-yellow-100 text-white p-1 hover:bg-purple-800"
+    <button
+      className="border border-1 border-yellow-100 text-white p-1 hover:bg-purple-800"
       onClick={getRandomJoke}
     >
       {name}
-    </Button>
+    </button>
   );
 };
