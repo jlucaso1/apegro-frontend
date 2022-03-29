@@ -1,27 +1,7 @@
-type size = "small" | "medium" | "large";
-type Props = {
-  className?: string;
-  size?: size;
-};
-const computedSize = (size: size) => {
-  switch (size) {
-    case "small":
-      return "2rem";
-    case "medium":
-      return "3rem";
-    case "large":
-      return "5rem";
-  }
-};
-
-export const LoadingSpinner: React.FC<Props> = ({
-  size = "medium",
-  className,
-}) => {
+export const LoadingSpinner: React.FC = () => {
   return (
     <svg
-      className={`animate-spin text-white rounded-full border border-1 border-pink-500 ${className}`}
-      style={{ width: computedSize(size), height: computedSize(size) }}
+      className="animate-spin h-10 w-10 text-white rounded-full border border-1 border-pink-500"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -42,5 +22,3 @@ export const LoadingSpinner: React.FC<Props> = ({
     </svg>
   );
 };
-
-export type { Props as LoadingSpinnerProps };

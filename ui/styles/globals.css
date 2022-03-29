@@ -6,4 +6,7 @@
   html {
     @apply bg-gray-900 overflow-x-hidden;
   }
+  body {
+    @apply text-white;
+  }
 }

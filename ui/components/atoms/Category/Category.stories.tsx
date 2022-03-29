@@ -1,29 +1,19 @@
 import React from "react";
-import { Category, CategoryProps } from "./Category";
-
-export const defaultCategory: React.FC<CategoryProps> = ({
-  name = "Category Name",
-  ...args
-}) => <Category {...{ ...args, name }} />;
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Category } from "./Category";
 
 export default {
   component: Category,
   title: "Atoms/Category",
   parameters: {
-    componentSubtitle: "A category component.",
+    componentSubtitle: "A Category component.",
   },
-  argTypes: {
-    name: {
-      control: {
-        type: "text",
-        placeholder: "Category name",
-      },
-    },
-    onClick: {
-      control: {
-        type: "function",
-        placeholder: "onClick",
-      },
-    },
-  },
+} as ComponentMeta<typeof Category>;
+const Template: ComponentStory<typeof Category> = (args) => (
+  <Category {...args} />
+);
+
+export const BasicCategory = Template.bind({});
+BasicCategory.args = {
+  name: "movie",
 };
