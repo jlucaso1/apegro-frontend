@@ -100,7 +100,7 @@ describe("Test navigations", () => {
   it("search page to index page", () => {
     cy.visit("http://localhost:3000/search");
 
-    cy.get("#__next > div > header > div > span > img").click();
+    cy.get("#__next > div > header > div > img").click();
 
     cy.url().should("include", "/");
   });
