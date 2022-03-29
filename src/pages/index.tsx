@@ -1,6 +1,6 @@
 import client from "../graphql/boot/apollo-client";
 import { QueryGetCategories } from "../graphql/queries/getCategories";
-import HomePage from "../ui/components/pages/HomePage/HomePage";
+import HomePage from "../../ui/components/pages/HomePage/HomePage";
 
 export async function getStaticProps() {
   const result = await client.query({

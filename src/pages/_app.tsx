@@ -1,9 +1,9 @@
-import "../ui/styles/globals.css";
+import "../../ui/styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import client from "../graphql/boot/apollo-client";
-import { Layout } from "../ui/components/templates/Layout/Layout";
+import { Layout } from "../../ui/components/templates/Layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

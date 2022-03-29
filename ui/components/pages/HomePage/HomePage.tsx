@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 import Router from "next/router";
 import React, { useState } from "react";
-import { IndexContext } from "../../../../contexts/index-context";
-import client from "../../../../graphql/boot/apollo-client";
-import { QueryGetCategories } from "../../../../graphql/queries/getCategories";
-import { QueryGetRandomJoke } from "../../../../graphql/queries/getRandomJoke";
+import { IndexContext } from "../../../../src/contexts/index-context";
+import client from "../../../../src/graphql/boot/apollo-client";
+import { QueryGetRandomJoke } from "../../../../src/graphql/queries/getRandomJoke";
 import Button from "../../atoms/Button/Button";
 import { CategoryList } from "../../molecules/CategoryList/CategoryList";
 import { RandomJoke } from "../../organisms/RandomJoke/RandomJoke";
@@ -54,7 +53,5 @@ const HomePage: NextPage<IndexPageProps> = ({ categories }) => {
     </IndexContext.Provider>
   );
 };
-
-
 
 export default HomePage;
